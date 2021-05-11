@@ -14,17 +14,16 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String reverse(String string) {
-		int n = string.length;
-		
-		for(i=n-1; i>=0; i--) {
-			String stringReverse;
-			stringReverse += string[n];
-			if n=0 {
-				return stringReverse;
-			}
+		int n = string.length();
+		char[] strArray = string.toCharArray();
+		String stringReverse = "";
+		for(int i=n-1; i>=0; i--) {
+			{
+		stringReverse += strArray[i];
 		}
+		}
+		return stringReverse;
 	}
-	reverse("golfball");
 
 	/**
 	 * 2. Convert a phrase to its acronym. Techies love their TLA (Three Letter
