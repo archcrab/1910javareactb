@@ -18,9 +18,7 @@ public class EvaluationService {
 		char[] strArray = string.toCharArray();
 		String stringReverse = "";
 		for(int i=n-1; i>=0; i--) {
-			{
 		stringReverse += strArray[i];
-		}
 		}
 		return stringReverse;
 	}
