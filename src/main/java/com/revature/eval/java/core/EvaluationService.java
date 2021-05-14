@@ -32,8 +32,16 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String tlw = "";
+		int n = phrase.length;
+		char[] phraseArr = phrase.toCharArray();
+		tlw += phraseArr[0];
+		for(int i=0; i<=n, i++) {
+			if(phraseArr[i]==" ") {
+				tlw += phraseArr[i+1]
+			}
+		}
+		return tlw;
 	}
 
 	/**
