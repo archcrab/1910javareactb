@@ -33,7 +33,7 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		String tlw = "";
-		int n = phrase.length;
+		int n = phrase.length();
 		char[] phraseArr = phrase.toCharArray();
 		tlw += phraseArr[0];
 		for(int i=0; i<=n; i++) {
