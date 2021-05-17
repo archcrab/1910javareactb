@@ -36,7 +36,7 @@ public class EvaluationService {
 		int n = phrase.length();
 		char[] phraseArr = phrase.toCharArray();
 		tlw += phraseArr[0];
-		for(int i=0; i<=n; i++) {
+		for(int i=0; i<=n-1; i++) {
 			if(phraseArr[i]==' ') {
 				tlw += phraseArr[i+1];
 			}
