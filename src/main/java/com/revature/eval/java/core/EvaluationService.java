@@ -110,7 +110,7 @@ public class EvaluationService {
 		}
 
 		public boolean isScalene() {
-			if((sideOne !== sideTwo) && (sideTwo !== sideThree) && (sideOne !== sideThere)) {
+			if((sideOne != sideTwo) && (sideTwo != sideThree) && (sideOne != sideThree)) {
 				return true;
 			} else {
 			return false;
