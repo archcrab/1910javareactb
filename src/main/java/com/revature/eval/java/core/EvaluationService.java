@@ -135,8 +135,28 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int score = 0;
+		int n = string.length();
+		string = string.toUpperCase();
+		char[] stringArr = string.toCharArray();
+		for(int i=0; i<n; i++) {
+			if((stringArr[i] == 'Q') || (stringArr[i] == 'Z')) {
+				score += 10;
+			} else if((stringArr[i] == 'J') || (stringArr[i] == 'X')) {
+				score += 8;
+			} else if(stringArr[i] == 'K') {
+				score += 5;
+			} else if((stringArr[i] == 'Y') || (stringArr[i] == 'W') || (stringArr[i] == 'V') || (stringArr[i] == 'H') || (stringArr[i] == 'F')) {
+				score += 4;
+			} else if((stringArr[i] == 'P') || (stringArr[i] == 'M') || (stringArr[i] == 'C') || (stringArr[i] == 'B')) {
+				score += 3;
+			} else if((stringArr[i] == 'G') || (stringArr[i] == 'D')) {
+				score += 2;
+			} else {
+				score += 1;
+			}
+		}
+		return score;
 	}
 
 	/**
