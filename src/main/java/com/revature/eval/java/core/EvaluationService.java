@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -201,6 +202,12 @@ public class EvaluationService {
 			if(cleanNumber.length()>10) {
 				cleanNumber = cleanNumber.substring(1);
 			}
+//			if (Long.parseLong(cleanNumber) < 200000000L) {
+//			    throw new IllegalArgumentException();
+//			}
+//			if (Long.parseLong(cleanNumber) >= 9999999999L) {
+//			    throw new IllegalArgumentException();
+//			}
 		}
 		System.out.println(cleanNumber);
 		return cleanNumber;
@@ -216,9 +223,26 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
-	}
+			  Map<String, Integer> map = new HashMap<String, Integer> ();
+			  String[] stringArr = string.split(" ");
+			  if(stringArr.length == 1) {
+				  stringArr = string.split(",\n");
+			  }
+			  if(stringArr.length == 1) {
+				  stringArr = string.split(",");
+			  }
+			  for (String s:stringArr) {
+			    
+			    if (!map.containsKey(s)) { 
+			      map.put(s, 1);
+			    }
+			    else {
+			      int count = map.get(s);
+			      map.put(s, count + 1);
+			    }
+			  }
+			  return map;
+}
 
 	/**
 	 * 7. Implement a binary search algorithm.
