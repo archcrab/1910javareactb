@@ -209,7 +209,6 @@ public class EvaluationService {
 //			    throw new IllegalArgumentException();
 //			}
 		}
-		System.out.println(cleanNumber);
 		return cleanNumber;
 	}
 
@@ -320,8 +319,38 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String toPigLatin(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String s = null;
+		if((string.charAt(0) == 'a') || (string.charAt(0) == 'e') || (string.charAt(0) == 'i') || (string.charAt(0) == 'o') || (string.charAt(0) == 'u')) {
+			s = string + "ay";
+		} else {
+			if((string.charAt(1) == 'a') || (string.charAt(1) == 'e') || (string.charAt(1) == 'i') || (string.charAt(1) == 'o') || (string.charAt(1) == 'u')) {
+				char firstLetter = string.charAt(0);
+				s = string.substring(1);
+				s = s + firstLetter + "ay";
+			} else {
+			if((string.charAt(2) == 'a') || (string.charAt(2) == 'e') || (string.charAt(2) == 'i') || (string.charAt(2) == 'o') || (string.charAt(2) == 'u')) {
+			char firstLetter = string.charAt(0);
+			s = string.substring(1);
+			s = s + firstLetter;
+			firstLetter = s.charAt(0);
+			s = s.substring(1);
+			s = s + firstLetter + "ay";
+		}
+			else {
+				char firstLetter = string.charAt(0);
+				s = string.substring(1);
+				s = s + firstLetter;
+				firstLetter = s.charAt(0);
+				s = s.substring(1);
+				s = s + firstLetter;
+				firstLetter = s.charAt(0);
+				s = s.substring(1);
+				s = s + firstLetter + "ay"; 
+		}
+			}
+		}
+		return s;
+		
 	}
 
 	/**
