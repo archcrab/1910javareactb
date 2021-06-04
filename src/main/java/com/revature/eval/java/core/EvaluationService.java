@@ -369,10 +369,20 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isArmstrongNumber(int input) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		int number = input, originalNumber=input, remainder, result = 0;
+		while (originalNumber != 0)
+        {
+            remainder = originalNumber % 10;
+            result += Math.pow(remainder, 3);
+            originalNumber /= 10;
+        }
+		if(result == number) {
+           return true;
+        }
+        else {
+            return false;
+        }
 	}
-
 	/**
 	 * 10. Compute the prime factors of a given natural number.
 	 * 
