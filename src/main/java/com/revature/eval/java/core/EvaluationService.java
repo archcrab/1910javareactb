@@ -15,6 +15,7 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public String reverse(String string) {
 		int n = string.length();
 		char[] strArray = string.toCharArray();
@@ -33,6 +34,7 @@ public class EvaluationService {
 	 * @param phrase
 	 * @return
 	 */
+	
 	public String acronym(String phrase) {
 		String tlw = "";
 		int n = phrase.length();
@@ -55,46 +57,38 @@ public class EvaluationService {
 	 * different lengths.
 	 *
 	 */
+	
 	static class Triangle {
 		private double sideOne;
 		private double sideTwo;
 		private double sideThree;
-
 		public Triangle() {
 			super();
 		}
-
 		public Triangle(double sideOne, double sideTwo, double sideThree) {
 			this();
 			this.sideOne = sideOne;
 			this.sideTwo = sideTwo;
 			this.sideThree = sideThree;
 		}
-
 		public double getSideOne() {
 			return sideOne;
 		}
-
 		public void setSideOne(double sideOne) {
 			this.sideOne = sideOne;
 		}
-
 		public double getSideTwo() {
 			return sideTwo;
 		}
-
 		public void setSideTwo(double sideTwo) {
 			this.sideTwo = sideTwo;
 		}
-
 		public double getSideThree() {
 			return sideThree;
 		}
-
 		public void setSideThree(double sideThree) {
 			this.sideThree = sideThree;
 		}
-
 		public boolean isEquilateral() {
 			if((sideOne == sideTwo) && (sideTwo == sideThree)) {
 				return true;
@@ -102,7 +96,6 @@ public class EvaluationService {
 			return false;
 			}
 		}
-
 		public boolean isIsosceles() {
 			if((sideOne == sideTwo) || (sideTwo == sideThree) || (sideOne == sideThree)) {
 				return true;
@@ -110,7 +103,6 @@ public class EvaluationService {
 			return false;
 			}
 		}
-
 		public boolean isScalene() {
 			if((sideOne != sideTwo) && (sideTwo != sideThree) && (sideOne != sideThree)) {
 				return true;
@@ -118,7 +110,6 @@ public class EvaluationService {
 			return false;
 			}
 		}
-
 	}
 
 	/**
@@ -136,6 +127,7 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public int getScrabbleScore(String string) {
 		int score = 0;
 		int n = string.length();
@@ -192,6 +184,7 @@ public class EvaluationService {
 	 * Note: As this exercise only deals with telephone numbers used in
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
+	
 	public String cleanPhoneNumber(String string) {
 		String cleanNumber = "";
 		for(int i=0; i<string.length(); i++) {
@@ -222,6 +215,7 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public Map<String, Integer> wordCount(String string) {
 			  Map<String, Integer> map = new HashMap<String, Integer> ();
 			  String[] stringArr = string.split(" ");
@@ -231,8 +225,7 @@ public class EvaluationService {
 			  if(stringArr.length == 1) {
 				  stringArr = string.split(",");
 			  }
-			  for (String s:stringArr) {
-			    
+			  for (String s:stringArr) {		    
 			    if (!map.containsKey(s)) { 
 			      map.put(s, 1);
 			    }
@@ -279,27 +272,23 @@ public class EvaluationService {
 	 * binary search is a dichotomic divide and conquer search algorithm.
 	 * 
 	 */
+	
 	static class BinarySearch<T> {
 		private List<T> sortedList;
-
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
 			return 0;
 		}
-
 		public BinarySearch(List<T> sortedList) {
 			super();
 			this.sortedList = sortedList;
 		}
-
 		public List<T> getSortedList() {
 			return sortedList;
 		}
-
 		public void setSortedList(List<T> sortedList) {
 			this.sortedList = sortedList;
 		}
-
 	}
 
 	/**
@@ -319,6 +308,7 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public String toPigLatin(String string) {
 		String s = null;
 		if((string.charAt(0) == 'a') || (string.charAt(0) == 'e') || (string.charAt(0) == 'i') || (string.charAt(0) == 'o') || (string.charAt(0) == 'u')) {
@@ -350,8 +340,7 @@ public class EvaluationService {
 		}
 			}
 		}
-		return s;
-		
+		return s;	
 	}
 
 	/**
@@ -369,6 +358,7 @@ public class EvaluationService {
 	 * @param input
 	 * @return
 	 */
+	
 	public boolean isArmstrongNumber(int input) {
 		int number = input, originalNumber=input, remainder, result = 0;
 		while (originalNumber != 0)
@@ -384,6 +374,7 @@ public class EvaluationService {
             return false;
         }
 	}
+	
 	/**
 	 * 10. Compute the prime factors of a given natural number.
 	 * 
@@ -441,13 +432,11 @@ public class EvaluationService {
 			super();
 			this.key = key;
 		}
-
 		public String rotate(String string) {
 				String[] characters = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
 				String decode = "";
 				int temp = 0;
-				int key = this.key;
-				
+				int key = this.key;	
 				for (int i = 0; i < string.length(); i++){
 					String letter = "" + string.charAt(i);
 					boolean isLetter = false;
@@ -480,7 +469,6 @@ public class EvaluationService {
 				}
 				return decode;
 			}
-
 	}
 
 	/**
@@ -546,8 +534,31 @@ public class EvaluationService {
 		 * @return
 		 */
 		public static String encode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String[] key = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+			string = string.toLowerCase();
+			String[] stringArray = string.split("");
+			int count = 0;
+			String crypto = "";
+			for(String stringFinal: stringArray) {
+				for(int i = 0; i < key.length; i++) {
+					if(stringFinal.equals(key[i])) {
+						if (count % 5 == 0 && count != 0) {
+							crypto += " ";
+						}
+						count++;
+						int j = (25 - i);
+						crypto += key[j];
+					}
+				}
+				if(stringFinal.equals("1") || stringFinal.equals("2") || stringFinal.equals("3") || stringFinal.equals("4") || stringFinal.equals("5") || stringFinal.equals("6") || stringFinal.equals("7") || stringFinal.equals("8") || stringFinal.equals("9") || stringFinal.equals("0")) {
+					if (count % 5 == 0 && count != 0) {
+						crypto += " ";
+					}
+					count++;
+					crypto += stringFinal;
+				}
+			}
+			return crypto;
 		}
 
 		/**
