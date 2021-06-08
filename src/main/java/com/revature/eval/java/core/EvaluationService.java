@@ -567,9 +567,23 @@ public class EvaluationService {
 		 * @param string
 		 * @return
 		 */
+		
 		public static String decode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String[] key = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+			String[] stringArray = string.split("");
+			String crypto = "";			
+			for(String stringFinal: stringArray) {
+				for(int i = 0; i < key.length; i++) {
+					if(stringFinal.equals(key[i])) {
+						int j = (25 - i);
+						crypto += key[j];
+					}
+				}
+				if(stringFinal.equals("1") || stringFinal.equals("2") || stringFinal.equals("3") || stringFinal.equals("4") || stringFinal.equals("5") || stringFinal.equals("6") || stringFinal.equals("7") || stringFinal.equals("8") || stringFinal.equals("9") || stringFinal.equals("0")) {
+					crypto += stringFinal;
+				}
+			}
+			return crypto;
 		}
 	}
 
