@@ -633,19 +633,6 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 17. Calculate the moment when someone has lived for 10^9 seconds.
-	 * 
-	 * A gigasecond is 109 (1,000,000,000) seconds.
-	 * 
-	 * @param given
-	 * @return
-	 */
-	public Temporal getGigasecondDate(Temporal given) {
-		// TODO Write an implementation for this method declaration
-		return null;
-	}
-
-	/**
 	 * 18. Given a number, find the sum of all the unique multiples of particular
 	 * numbers up to but not including that number.
 	 * 
