@@ -611,17 +611,23 @@ public class EvaluationService {
 	 */
 	public boolean isValidIsbn(String string) {
 		String testString = ""; 
-		for(int i = 0; i > string.length(); i ++) {
+		for(int i = 0; i < string.length(); i ++) {
 			if(Character.isDigit(string.charAt(i)) == true) {
 				testString += string.charAt(i);
+//				System.out.println(testString);
 			}
-
+//			System.out.println(testString);
 		}
-		if((testString.charAt(1)*10)+(testString.charAt(2)*9)+(testString.charAt(3)*8)+(testString.charAt(4)*7)+(testString.charAt(5)*6)+(testString.charAt(6)*5)+(testString.charAt(7)*4)+(testString.charAt(8)*3)+(testString.charAt(9)*2)+(testString.charAt(10)*1)%11 == 0) {
-		return true; }
-		else {
+//		System.out.println(testString);
+		if(testString.length() < 10) {
+//			System.out.println("first false");
 			return false;
+		} else if(((Character.getNumericValue(testString.charAt(0))*10)+(Character.getNumericValue((testString.charAt(1))*9))+(Character.getNumericValue((testString.charAt(2))*8))+(Character.getNumericValue((testString.charAt(3))*7))+(Character.getNumericValue((testString.charAt(4))*6))+(Character.getNumericValue((testString.charAt(5))*5))+(Character.getNumericValue((testString.charAt(6))*4))+(Character.getNumericValue((testString.charAt(7))*3))+(Character.getNumericValue((testString.charAt(8))*2))+(Character.getNumericValue((testString.charAt(9))*1)))%11 == 0) {
+//			System.out.println("true");
+			return true;
 		}
+//		System.out.println("false");
+		return false;
 	}
 
 	/**
