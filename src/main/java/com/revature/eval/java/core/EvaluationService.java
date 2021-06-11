@@ -644,8 +644,18 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		boolean truthiness = false;
+		String[] key = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+		int count = 0;
+		for (int i = 0; i < key.length; i++) {
+			if(string.contains(key[i])) {
+				count++;
+			}
+		}
+		if(count == 26) {
+			truthiness = true;
+		}
+		return truthiness;
 	}
 
 	/**
@@ -662,8 +672,17 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+int sum = 0;
+		
+		for (int j = 1; j < i; j++) {
+			for (int k = 0; k < set.length; k++) {
+				if(j % set[k] == 0) {
+					sum += j;
+					k = set.length;
+				}
+			}
+		}
+		return sum;
 	}
 
 	/**
