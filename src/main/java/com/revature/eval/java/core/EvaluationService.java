@@ -276,8 +276,24 @@ public class EvaluationService {
 	static class BinarySearch<T> {
 		private List<T> sortedList;
 		public int indexOf(T t) {
-			// TODO Write an implementation for this method declaration
-			return 0;
+			String string = t.toString();
+			int temp = Integer.valueOf(string);
+			int l = 0;
+			int r = sortedList.size()-1;
+			
+			while(l <= r) {
+				int m = l + (r - l) /2;
+				String middleStr = sortedList.get(m).toString();
+				if(Integer.valueOf(middleStr) == temp) {
+					return m;
+				}
+				if(Integer.valueOf(middleStr) < temp) {
+					l = m + 1;
+				}else {
+					r = m - 1;
+				}	
+			}
+			return -1;			
 		}
 		public BinarySearch(List<T> sortedList) {
 			super();
@@ -446,7 +462,6 @@ public class EvaluationService {
 							if (j+key > 25) {
 								temp = j+key;
 								temp -= 26;
-								
 							}else {
 								temp += key;
 							}
@@ -483,6 +498,7 @@ public class EvaluationService {
 	 * @param i
 	 * @return
 	 */
+	
 	public int calculateNthPrime(int i) {
 		if (i < 1) {
 			throw new IllegalArgumentException();
@@ -525,6 +541,7 @@ public class EvaluationService {
 	 * rxpyi ldmul cqfnk hlevi gsvoz abwlt gives thequickbrownfoxjumpsoverthelazydog
 	 *
 	 */
+	
 	static class AtbashCipher {
 
 		/**
@@ -533,6 +550,7 @@ public class EvaluationService {
 		 * @param string
 		 * @return
 		 */
+		
 		public static String encode(String string) {
 			String[] key = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
 			string = string.toLowerCase();
@@ -609,6 +627,7 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public boolean isValidIsbn(String string) {
 		String testString = ""; 
 		for(int i = 0; i < string.length(); i ++) {
@@ -643,6 +662,7 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	
 	public boolean isPangram(String string) {
 		boolean truthiness = false;
 		String[] key = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
@@ -671,6 +691,7 @@ public class EvaluationService {
 	 * @param set
 	 * @return
 	 */
+	
 	public int getSumOfMultiples(int i, int[] set) {
 int sum = 0;
 		
@@ -721,9 +742,27 @@ int sum = 0;
 	 * @param string
 	 * @return
 	 */
+	
 	public boolean isLuhnValid(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		string = string.replaceAll("\\s+","");
+		String stringTemp = "";
+		for (int i = 0; i < string.length(); i++) {
+			if(Character.isDigit(string.charAt(i)) == false) {
+				return false;
+			}
+		}
+		for (int j = 0; j < string.length(); j++) {
+			if(Character.getNumericValue(string.charAt(j)) <= 9) {
+				stringTemp += string.charAt(j);
+			} else if(Character.getNumericValue(string.charAt(j)) > 9) {
+					stringTemp += (string.charAt(j) - 9);
+				}
+		}
+		if(Integer.parseInt(stringTemp)%10 == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
