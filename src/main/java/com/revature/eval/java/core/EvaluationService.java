@@ -1,6 +1,5 @@
 package com.revature.eval.java.core;
 
-import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -793,8 +792,29 @@ int sum = 0;
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
+		int numA = 0, numB = 0, result = 0;
+		String temp = "";
+		String[] array = string.split(" ");
+		
+		numA = Integer.valueOf(array[2]);
+		
+		if(array.length == 5) {
+			temp += array[4].replace("?", "");
+			numB = Integer.valueOf(temp);
+		}else if(array.length == 6) {
+			temp += array[5].replace("?", "");
+			numB = Integer.valueOf(temp);
+		}
+		if (array[3].equals("plus")) {
+			result = numA + numB;
+		}else if (array[3].equals("minus")) {
+			result = numA - numB;
+		}else if (array[3].equals("multiplied")) {
+			result = numA * numB;
+		}else if (array[3].equals("divided")) {
+			result = numA / numB;
+		}
+		
+		return result;	}
 
 }
