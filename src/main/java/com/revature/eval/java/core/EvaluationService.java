@@ -16,13 +16,15 @@ public class EvaluationService {
 	 */
 	
 	public String reverse(String string) {
-		int n = string.length();
-		char[] strArray = string.toCharArray();
-		String stringReverse = "";
-		for(int i=n-1; i>=0; i--) {
-		stringReverse += strArray[i];
+		char[] strArray = string.toCharArray(); // establish a char array for iteration
+//		System.out.println(strArray);
+		String stringReverse = ""; // establish empty string to print to
+		for(int i=string.length()-1; i>=0; i--) { // iterate string in reverse order
+		stringReverse += strArray[i]; // append each new character to string
+//		System.out.println(stringReverse);
 		}
-		return stringReverse;
+//		System.out.println(stringReverse);
+		return stringReverse; // return string reversed
 	}
 
 	/**
@@ -35,16 +37,18 @@ public class EvaluationService {
 	 */
 	
 	public String acronym(String phrase) {
-		String tlw = "";
-		int n = phrase.length();
-		char[] phraseArr = phrase.toCharArray();
-		tlw += phraseArr[0];
-		for(int i=0; i<=n-1; i++) {
-			if(phraseArr[i]==' ') {
-				tlw += phraseArr[i+1];
+		String threeLetterWord = ""; // initialize empty string
+		char[] phraseArr = phrase.toCharArray(); // initialize 
+		threeLetterWord += phraseArr[0]; // set first letter to first abbreviated character
+//		System.out.println(threeLetterWord);
+		for(int i=0; i<=phrase.length()-1; i++) {
+			if(phraseArr[i]==' ' || phraseArr[i]=='-') { // test for space or hyphen
+				threeLetterWord += phraseArr[i+1]; // set the capitalized word after the space to the subsequent characters
+//				System.out.println(threeLetterWord);
 			}
+			threeLetterWord = threeLetterWord.toUpperCase(); // sets to uppercase for lowercase words
 		}
-		return tlw;
+		return threeLetterWord;
 	}
 
 	/**
@@ -791,6 +795,7 @@ int sum = 0;
 	 * @param string
 	 * @return
 	 */
+	
 	public int solveWordProblem(String string) {
 		int numA = 0, numB = 0, result = 0;
 		String temp = "";
