@@ -761,6 +761,9 @@ int sum = 0;
 					stringTemp += (string.charAt(j) - 9);
 				}
 		}
+		if(stringTemp.length() > 10) {
+			return false;
+		}
 		if(Integer.parseInt(stringTemp)%10 == 0) {
 			return true;
 		} else {
