@@ -292,7 +292,7 @@ public class EvaluationService {
 
 	static class BinarySearch<T> {
 		private List<T> sortedList;
-
+// couldn't figure out how to get this to work!
 		public int indexOf(T t) {
 			String string = t.toString();
 			int input = Integer.valueOf(string);
@@ -483,6 +483,7 @@ public class EvaluationService {
 			int key = this.key;
 			for (int i = 0; i < string.length(); i++) {
 				String letter = "" + string.charAt(i);
+//				System.out.println(letter);
 				boolean isLetter = false;
 				for (int j = 0; j < characters.length; j++) {
 					temp = j;
@@ -495,6 +496,7 @@ public class EvaluationService {
 						}
 						isLetter = true;
 						decode += characters[temp];
+//						System.out.println(decode);
 					} else if (letter.equals(characters[j].toUpperCase())) {
 						if (j + key > 25) {
 							temp = j + key;
