@@ -275,7 +275,14 @@ public class EvaluationService {
 		private List<T> sortedList;
 
 		public int indexOf(T t) {
-			// TODO Write an implementation for this method declaration
+//			@SuppressWarnings("unchecked")
+//			int mid = ((List<T>) t).size()/2;
+//			int first = 0;
+//			@SuppressWarnings("unchecked")
+//			int last = ((List<T>) t).size();
+//			for (int i = mid; i < last; i+=i/2) {
+//			   if(mid == t);
+//			}
 			return 0;
 		}
 
@@ -437,11 +444,31 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 * 
 	 * @param i
-	 * @return
 	 */
 	public int calculateNthPrime(int i) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		if(i<1) {
+			throw new IllegalArgumentException();
+		}
+		int n = i;
+	    int num = 1;
+	    int count = 0;
+	    
+	    while (count < n)
+	    {
+	        num = num+1;
+	        for (int j = 2; j <= num; j++)
+	        {
+	            if (num % j == 0)
+	            {
+	                return j;
+	            }
+	        }
+	        if (i == num)
+	        {
+	            count = count+1;
+	        }
+	    }
+	    return 0;
 	}
 
 	/**
