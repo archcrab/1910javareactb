@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -389,8 +390,26 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		List<Long> factors= new ArrayList();
+		long n = l;
+		while (n%2==0) 
+        { 
+            factors.add(n); 
+            n /= 2; 
+        } 
+		 for (int i = 3; i <= Math.sqrt(n); i+= 2) 
+	        { 
+	            while (n%i == 0) 
+	            { 
+	            	factors.add(n);
+	                n /= i; 
+	            } 
+	        } 
+		 if (n > 2) {
+	            factors.add(n); 
+	    } 
+//		 System.out.println(factors);
+		return factors;
 	}
 
 	/**
@@ -428,8 +447,15 @@ public class EvaluationService {
 		}
 
 		public String rotate(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String stringTemp = "";
+			for(int i=0; i<string.length(); i++) {
+				char c = string.charAt(i);
+				if  (c >= 'A' && c <= 'Z') c += key;
+				else if  (c >= 'a' && c <= 'z') c += key;
+	            stringTemp += c;
+			}
+//			System.out.println(stringTemp);
+			return stringTemp;
 		}
 
 	}
@@ -504,8 +530,19 @@ public class EvaluationService {
 		 * @return
 		 */
 		public static String encode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String stringLC = string.toLowerCase();
+			String stringFinal = "";
+			for(int i=0; i<stringLC.length(); i++) {
+				char c = stringLC.charAt(i);
+				 if(Character.isLetter(c))
+		            {
+				stringFinal += (char) ('a' + ('z' - c));;
+		            } else {
+		            	stringFinal += c;
+		            }
+			}
+			System.out.println(stringFinal);
+			return stringFinal;
 		}
 
 		/**
@@ -515,8 +552,17 @@ public class EvaluationService {
 		 * @return
 		 */
 		public static String decode(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String stringLC = string.toLowerCase();
+			String stringFinal = "";
+			for(int i=0; i<stringLC.length(); i++) {
+				char c = stringLC.charAt(i);
+				 if(Character.isLetter(c))
+		            {
+				stringFinal += (char) ('a' + ('z' - c));;
+		            } 
+			}
+			System.out.println(stringFinal);
+			return stringFinal;
 		}
 	}
 
