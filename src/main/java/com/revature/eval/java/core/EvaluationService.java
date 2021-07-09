@@ -329,9 +329,10 @@ public class EvaluationService {
 				stringArray[i] += "ay";
 			} else if (stringArray[i].charAt(0) == 'q' && stringArray[i].charAt(1) == 'u') {
 				stringArray[i] = stringArray[i].substring(2) + "quay";
-			} else 	if (stringArray[i].charAt(0) == 't' && stringArray[i].charAt(1) == 'h') {
+			} else if (stringArray[i].charAt(0) == 't' && stringArray[i].charAt(1) == 'h') {
 				stringArray[i] = stringArray[i].substring(2) + "thay";
-			} else if (stringArray[i].charAt(0) == 's' && stringArray[i].charAt(1) == 'c' && stringArray[i].charAt(2) == 'h') {
+			} else if (stringArray[i].charAt(0) == 's' && stringArray[i].charAt(1) == 'c'
+					&& stringArray[i].charAt(2) == 'h') {
 				stringArray[i] = stringArray[i].substring(3) + "schay";
 			} else {
 				stringArray[i] = stringArray[i].substring(1) + stringArray[i].charAt(0) + "ay";
@@ -360,19 +361,20 @@ public class EvaluationService {
 	public boolean isArmstrongNumber(int input) {
 		int number = input;
 		int remainder;
-		int digits=0;
-		int total=0;
-		while(number > 0) { // should extract the number of tens places from the input
-		digits++;
-	    number=number/10;
-	    }  
-		number = input; // resets number for next operation
-		while(number > 0) { // should give the sum of the digits each raised to the power of the number of digits
-			remainder=number%10;
-			total+=Math.pow(remainder, digits);
-			number=number/10;
+		int digits = 0;
+		int total = 0;
+		while (number > 0) { // should extract the number of tens places from the input
+			digits++;
+			number = number / 10;
 		}
-		if(input == total) {
+		number = input; // resets number for next operation
+		while (number > 0) { // should give the sum of the digits each raised to the power of the number of
+								// digits
+			remainder = number % 10;
+			total += Math.pow(remainder, digits);
+			number = number / 10;
+		}
+		if (input == total) {
 			return true;
 		} else {
 			return false;
@@ -390,24 +392,21 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		List<Long> factors= new ArrayList();
+		List<Long> factors = new ArrayList();
 		long n = l;
-		while (n%2==0) 
-        { 
-            factors.add(n); 
-            n /= 2; 
-        } 
-		 for (int i = 3; i <= Math.sqrt(n); i+= 2) 
-	        { 
-	            while (n%i == 0) 
-	            { 
-	            	factors.add(n);
-	                n /= i; 
-	            } 
-	        } 
-		 if (n > 2) {
-	            factors.add(n); 
-	    } 
+		while (n % 2 == 0) {
+			factors.add(n);
+			n /= 2;
+		}
+		for (int i = 3; i <= Math.sqrt(n); i += 2) {
+			while (n % i == 0) {
+				factors.add(n);
+				n /= i;
+			}
+		}
+		if (n > 2) {
+			factors.add(n);
+		}
 //		 System.out.println(factors);
 		return factors;
 	}
@@ -448,11 +447,13 @@ public class EvaluationService {
 
 		public String rotate(String string) {
 			String stringTemp = "";
-			for(int i=0; i<string.length(); i++) {
+			for (int i = 0; i < string.length(); i++) {
 				char c = string.charAt(i);
-				if  (c >= 'A' && c <= 'Z') c += key;
-				else if  (c >= 'a' && c <= 'z') c += key;
-	            stringTemp += c;
+				if (c >= 'A' && c <= 'Z')
+					c += key;
+				else if (c >= 'a' && c <= 'z')
+					c += key;
+				stringTemp += c;
 			}
 //			System.out.println(stringTemp);
 			return stringTemp;
@@ -472,29 +473,25 @@ public class EvaluationService {
 	 * @param i
 	 */
 	public int calculateNthPrime(int i) {
-		if(i<1) {
+		if (i < 1) {
 			throw new IllegalArgumentException();
 		}
 		int n = i;
-	    int num = 1;
-	    int count = 0;
-	    
-	    while (count < n)
-	    {
-	        num = num+1;
-	        for (int j = 2; j <= num; j++)
-	        {
-	            if (num % j == 0)
-	            {
-	                return j;
-	            }
-	        }
-	        if (i == num)
-	        {
-	            count = count+1;
-	        }
-	    }
-	    return 0;
+		int num = 1;
+		int count = 0;
+
+		while (count < n) {
+			num = num + 1;
+			for (int j = 2; j <= num; j++) {
+				if (num % j == 0) {
+					return j;
+				}
+			}
+			if (i == num) {
+				count = count + 1;
+			}
+		}
+		return 0;
 	}
 
 	/**
@@ -532,16 +529,16 @@ public class EvaluationService {
 		public static String encode(String string) {
 			String stringLC = string.toLowerCase();
 			String stringFinal = "";
-			for(int i=0; i<stringLC.length(); i++) {
+			for (int i = 0; i < stringLC.length(); i++) {
 				char c = stringLC.charAt(i);
-				 if(Character.isLetter(c))
-		            {
-				stringFinal += (char) ('a' + ('z' - c));;
-		            } else {
-		            	stringFinal += c;
-		            }
+				if (Character.isLetter(c)) {
+					stringFinal += (char) ('a' + ('z' - c));
+					;
+				} else {
+					stringFinal += c;
+				}
 			}
-			System.out.println(stringFinal);
+//			System.out.println(stringFinal);
 			return stringFinal;
 		}
 
@@ -554,14 +551,14 @@ public class EvaluationService {
 		public static String decode(String string) {
 			String stringLC = string.toLowerCase();
 			String stringFinal = "";
-			for(int i=0; i<stringLC.length(); i++) {
+			for (int i = 0; i < stringLC.length(); i++) {
 				char c = stringLC.charAt(i);
-				 if(Character.isLetter(c))
-		            {
-				stringFinal += (char) ('a' + ('z' - c));;
-		            } 
+				if (Character.isLetter(c)) {
+					stringFinal += (char) ('a' + ('z' - c));
+					;
+				}
 			}
-			System.out.println(stringFinal);
+//			System.out.println(stringFinal);
 			return stringFinal;
 		}
 	}
@@ -615,8 +612,8 @@ public class EvaluationService {
 			return true;
 		} else {
 //		System.out.println("false");
-		return false;
-	}
+			return false;
+		}
 	}
 
 	/**
@@ -633,22 +630,19 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isPangram(String string) {
-		 boolean[] table = new boolean[26];  
-	        int index = 0; 
-	        for (int i = 0; i < string.length(); i++) 
-	        {
-	            if ('A' <= string.charAt(i) &&  
-	                    string.charAt(i) <= 'Z')  
-	                index = string.charAt(i) - 'A'; 
-	            else if('a' <= string.charAt(i) &&  
-	                        string.charAt(i) <= 'z')        
-	                index = string.charAt(i) - 'a'; 
-	  	            table[index] = true; 
-	        } 
-	        for (int i = 0; i <= 25; i++) 
-	            if (table[i] == false) 
-	                return (false); 
-	        return (true); 
+		boolean[] table = new boolean[26];
+		int index = 0;
+		for (int i = 0; i < string.length(); i++) {
+			if ('A' <= string.charAt(i) && string.charAt(i) <= 'Z')
+				index = string.charAt(i) - 'A';
+			else if ('a' <= string.charAt(i) && string.charAt(i) <= 'z')
+				index = string.charAt(i) - 'a';
+			table[index] = true;
+		}
+		for (int i = 0; i <= 25; i++)
+			if (table[i] == false)
+				return (false);
+		return (true);
 	}
 
 	/**
@@ -665,8 +659,15 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int sum = 0;
+		for (int j = 0; j < set.length; j++) {
+			for (int k = 1; k < i; k++) {
+				if (k % set[j] == 0) {
+					sum += k;
+				}
+			}
+		}
+		return sum;
 	}
 
 	/**
@@ -706,8 +707,15 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isLuhnValid(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		int sum = 0;
+		for (int i = 1; i < string.length(); i += 2) {
+			sum += 2 * string.charAt(i);
+		}
+		if (sum % 10 == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
