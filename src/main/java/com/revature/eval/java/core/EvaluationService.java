@@ -746,8 +746,23 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		String tempString = string.substring(8, string.length()-1);
+		String[] tempArray = tempString.split(" ");
+		if(tempArray.length>3) {
+			if(tempArray[1].length()>7) {
+				int temp = Integer.parseInt(tempArray[0])*Integer.parseInt(tempArray[3]);
+				return temp;
+			}
+			int temp = Integer.parseInt(tempArray[0])/Integer.parseInt(tempArray[3]);
+			return temp;
+		}
+		if(tempArray[1].length()>4) {
+			int temp = Integer.parseInt(tempArray[0])-Integer.parseInt(tempArray[2]);
+			System.out.println(tempArray[0]);
+			return temp;
+		}
+		int temp = Integer.parseInt(tempArray[0])+Integer.parseInt(tempArray[2]);
+		System.out.println(tempArray[0]);
+		return temp;
 	}
-
 }
