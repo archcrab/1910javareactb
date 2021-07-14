@@ -2,8 +2,10 @@ package com.revature.eval.java.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class EvaluationService {
 
@@ -659,15 +661,16 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		int sum = 0;
+		Set<Integer> IntSet = new HashSet<Integer>();
 		for (int j = 0; j < set.length; j++) {
 			for (int k = 1; k < i; k++) {
 				if (k % set[j] == 0) {
-					sum += k;
+					IntSet.add(k);
 				}
 			}
 		}
-		return sum;
+		 Integer integerSum = IntSet.stream().mapToInt(Integer::intValue).sum();
+		 return integerSum;
 	}
 
 	/**
