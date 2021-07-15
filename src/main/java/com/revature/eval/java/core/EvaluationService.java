@@ -201,7 +201,7 @@ public class EvaluationService {
 		}
 		if (string.charAt(0) == 1) {
 			number = number.substring(1);
-			System.out.println(number);
+//			System.out.println(number);
 		}
 		if (number.length() != 10) {
 			throw new IllegalArgumentException();
@@ -397,19 +397,19 @@ public class EvaluationService {
 		List<Long> factors = new ArrayList();
 		long n = l;
 		while (n % 2 == 0) {
-			factors.add(n);
+			factors.add(2L);
 			n /= 2;
 		}
 		for (int i = 3; i <= Math.sqrt(n); i += 2) {
 			while (n % i == 0) {
-				factors.add(n);
+				factors.add(3L);
 				n /= i;
 			}
 		}
 		if (n > 2) {
 			factors.add(n);
 		}
-//		 System.out.println(factors);
+		 System.out.println(factors);
 		return factors;
 	}
 
@@ -761,11 +761,11 @@ public class EvaluationService {
 		}
 		if(tempArray[1].length()>4) {
 			int temp = Integer.parseInt(tempArray[0])-Integer.parseInt(tempArray[2]);
-			System.out.println(tempArray[0]);
+//			System.out.println(tempArray[0]);
 			return temp;
 		}
 		int temp = Integer.parseInt(tempArray[0])+Integer.parseInt(tempArray[2]);
-		System.out.println(tempArray[0]);
+//		System.out.println(tempArray[0]);
 		return temp;
 	}
 }
