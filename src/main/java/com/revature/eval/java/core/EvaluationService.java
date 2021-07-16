@@ -409,7 +409,7 @@ public class EvaluationService {
 		if (n > 2) {
 			factors.add(n);
 		}
-		 System.out.println(factors);
+//		 System.out.println(factors);
 		return factors;
 	}
 
@@ -530,17 +530,30 @@ public class EvaluationService {
 		 */
 		public static String encode(String string) {
 			String stringLC = string.toLowerCase();
+			String stringTemp = "";
 			String stringFinal = "";
 			for (int i = 0; i < stringLC.length(); i++) {
 				char c = stringLC.charAt(i);
 				if (Character.isLetter(c)) {
-					stringFinal += (char) ('a' + ('z' - c));
-					;
+					stringTemp += (char) ('a' + ('z' - c));
+				} else if(string.charAt(i) == ' '){
+					stringTemp += "";
 				} else {
-					stringFinal += c;
+					stringTemp += c;
 				}
 			}
-//			System.out.println(stringFinal);
+			stringTemp = stringTemp.replaceAll("\\p{Punct}", "");
+			for (int i = 0; i < stringTemp.length(); i++) {
+				char d = stringTemp.charAt(i);
+				if(i%5==0 && i!=0) {
+					stringFinal += " " + d;
+				} else if (stringTemp.charAt(i) == ',' || stringTemp.charAt(i) == '.') {
+					stringFinal += "";
+				} else {
+					stringFinal += d;
+				}
+				}
+			System.out.println(stringFinal);
 			return stringFinal;
 		}
 
