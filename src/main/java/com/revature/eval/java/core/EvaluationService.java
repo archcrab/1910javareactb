@@ -402,14 +402,14 @@ public class EvaluationService {
 		}
 		for (int i = 3; i <= Math.sqrt(n); i += 2) {
 			while (n % i == 0) {
-				factors.add(3L);
+				factors.add((long) i);
 				n /= i;
 			}
 		}
 		if (n > 2) {
 			factors.add(n);
 		}
-//		 System.out.println(factors);
+		 System.out.println(factors);
 		return factors;
 	}
 
@@ -553,7 +553,7 @@ public class EvaluationService {
 					stringFinal += d;
 				}
 				}
-			System.out.println(stringFinal);
+//			System.out.println(stringFinal);
 			return stringFinal;
 		}
 
